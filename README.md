@@ -21,6 +21,6 @@ All Rules is located at src/AppBundle/Rules folder
 
 Rules configuration is at src/AppBundle/config/config.json (rules are applied by the order in config file)
 
-PHP Unit Tests can be run by command:
+PHP Unit Tests can be run by command (Tests and tests data/configs located at src/AppBundle/Tests):
 
     php phpunit.phar -c app src/AppBundle/
