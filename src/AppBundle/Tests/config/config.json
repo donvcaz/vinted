@@ -1,0 +1,17 @@
+{
+    "appliedRules" : {
+        "PackageLowestPriceRule" : {
+            "includedPackages" : ["S"]
+        },
+        "FreeShipmentPerMonthRule" : {
+            "providers" : {
+                "LP" : {
+                    "L" : 3
+                }
+            }
+        },
+        "MaximumDiscountsPerMonthRule" : {
+            "maximumDiscount" : "10.00"
+        }
+    }
+}

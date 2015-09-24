@@ -1,0 +1,23 @@
+parameters:
+    file.config:  @@AppBundle/Resources/config/config.json
+    file.input_data:  @@AppBundle/Resources/data/input.txt
+    file.providers_data:  @@AppBundle/Resources/data/providers.txt
+
+services:
+    configuration_service:
+        class:  AppBundle\Service\ConfigService
+        arguments: [@kernel, %file.config%]
+
+    entity_list_service:
+        class:  AppBundle\Service\EntityListService
+        arguments: [@kernel, %file.providers_data%]
+
+    rules_service:
+        class: AppBundle\Rules\RulesService
+        arguments: [@configuration_service]
+        calls:
+            - [setContainer, [@service_container]]
+
+    client_service:
+        class: AppBundle\Service\ClientService
+        arguments: [@kernel, @entity_list_service, @rules_service, %file.input_data%]
